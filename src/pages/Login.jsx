@@ -26,7 +26,7 @@ function Login({ setToken }) {
 
     return (
         <div className="page">
-            <h2>Login</h2>
+            <h2>My-Manager</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <div>
                 <label>Email</label>
