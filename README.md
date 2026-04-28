@@ -9,14 +9,14 @@
 
 ## Description
 
-A task management web application built with React and TypeScript. Users can create, view, edit, delete, and mark tasks as complete. Tasks can be filtered by status and searched by title. Each task has a title, description, priority level, and due date.
+A task management web application built with React and TypeScript. Users can create, view, edit, delete, and mark tasks as complete. Each task has a title, description, priority level, and due date.
 
 ---
 
 ## Technologies Used
 
 - React
-- TypeScript
+- JavaScript
 - React Router DOM
 - Vite
 - CSS
