@@ -3,62 +3,42 @@
 **Student Name:** Allen G Meti  
 **Student ID:** 24019726  
 **Module:** INFS 202  
-**Project:** Midterm Project — React Web Application  
 
 ---
 
 ## Description
 
-A task management web application built with React and TypeScript. Users can create, view, edit, delete, and mark tasks as complete. Each task has a title, description, priority level, and due date.
+A full stack task management web application built with React on the frontend and Node.js with Express on the backend. Users can register, login, and manage their personal tasks. Each task has a title, description, priority level, and due date. Tasks are stored in a MySQL database. Authentication is handled using JWT tokens and passwords are encrypted with bcrypt.
 
 ---
 
 ## Technologies Used
 
 - React
-- JavaScript
+- JavaScript (JSX)
 - React Router DOM
+- Axios
 - Vite
 - CSS
-
----
-
-## Features
-
-- View all tasks in a list
-- Add new tasks with a form
-- Edit existing tasks
-- Delete tasks
-- Mark tasks as complete or undo
-- Filter tasks by All, Pending, or Done
-- Search tasks by title
-- View full task details on a separate page
-- Form validation with error messages
-- Responsive layout
-
----
-
-## Project Structure
-src/
-├── components/
-│   ├── Navbar.tsx
-│   └── TaskCard.tsx
-├── pages/
-│   ├── Home.tsx
-│   ├── List.tsx
-│   ├── Details.tsx
-│   └── AddTask.tsx
-├── App.tsx
-└── main.tsx
+- Node.js
+- Express
+- MySQL
+- JWT
+- bcryptjs
+- Render for backend deployment
+- Vercel for frontend deployment
+- Railway for database hosting
 
 ---
 
 ## How to Run
 
+### Frontend
 1. Make sure you have Node.js installed
-2. Download or clone the project
-3. Open a terminal in the project folder
+2. Clone or download the project
+3. Open a terminal in the frontend folder
 4. Run the following commands:
+
 ```bash
 npm install
 npm run dev
@@ -66,19 +46,14 @@ npm run dev
 
 5. Open your browser and go to `http://localhost:5173`
 
----
+### Backend
+1. Open a terminal in the backend folder
+2. Create a `.env` file with your database credentials
+3. Run the following commands:
 
-## Pages
+```bash
+npm install
+npm run dev
+```
 
-| Route | Page |
-|---|---|
-| /home | Home page with task summary |
-| /list | Full list of all tasks |
-| /add | Form to add a new task |
-| /details/:id | Full details of a single task |
-
----
-
-## Screenshots
-
-Screenshots are in the `/screenshots` folder.
+4. Server runs on `http://localhost:5173`
