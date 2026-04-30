@@ -1,3 +1,4 @@
+// Importing React hooks, router utilities, components, and API services
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -10,10 +11,12 @@ import Register from './pages/Register'
 import { getTasks, addTask, updateTask, deleteTask } from './services/api'
 import './App.css'
 
+// Main App component: manages authentication, tasks state, and routing
 function App() {
-    const [tasks, setTasks] = useState([])
-    const [token, setToken] = useState(localStorage.getItem('token'))
+    const [tasks, setTasks] = useState([]) // State for tasks
+    const [token, setToken] = useState(localStorage.getItem('token')) // State for JWT token
 
+    // Fetch tasks when token is available (user logged in)
     useEffect(() => {
         if (token) {
             getTasks()
@@ -22,6 +25,7 @@ function App() {
         }
     }, [token])
 
+    // Handlers for CRUD operations on tasks
     async function handleAddTask(taskData) {
         try {
             await addTask(taskData)
@@ -62,19 +66,26 @@ function App() {
         }
     }
 
+    // Logout handler: clears localStorage and redirects to login
     function handleLogout() {
         localStorage.removeItem('token')
         localStorage.removeItem('username')
         window.location.href = '/login'
     }
 
+    // Routing setup: protects routes based on authentication state
     return (
         <BrowserRouter>
             {token && <Navbar onLogout={handleLogout} />}
             <Routes>
+                {/* Redirect root path based on login state */}
                 <Route path="/" element={<Navigate to={token ? '/home' : '/login'} />} />
+
+                {/* Auth routes */}
                 <Route path="/login" element={!token ? <Login setToken={setToken} /> : <Navigate to="/home" />} />
                 <Route path="/register" element={!token ? <Register /> : <Navigate to="/home" />} />
+
+                {/* Protected routes */}
                 <Route path="/home" element={token ? <Home tasks={tasks} /> : <Navigate to="/login" />} />
                 <Route path="/list" element={token ? <List tasks={tasks} onDelete={handleDeleteTask} onToggle={handleToggleTask} /> : <Navigate to="/login" />} />
                 <Route path="/details/:id" element={token ? <Details tasks={tasks} /> : <Navigate to="/login" />} />
@@ -85,4 +96,5 @@ function App() {
     )
 }
 
+// Exporting App as the root component
 export default App

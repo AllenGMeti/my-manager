@@ -1,11 +1,15 @@
+// Importing router utilities for accessing URL parameters and navigation
 import { useParams, useNavigate } from 'react-router-dom'
 
+// Details component: displays full information for a single task
 function Details({ tasks }) {
-    const { id } = useParams()
-    const navigate = useNavigate()
+    const { id } = useParams()      // Get task ID from URL
+    const navigate = useNavigate()  // Hook for navigation
 
+    // Find the task by ID in the tasks array
     const task = tasks.find(t => t.id === Number(id))
 
+    // If task is not found, show fallback message and back button
     if (!task) {
         return (
             <div>
@@ -15,6 +19,7 @@ function Details({ tasks }) {
         )
     }
 
+    // If task exists, display its details and provide navigation options
     return (
         <div>
             <button onClick={() => navigate('/list')}>Back</button>
@@ -28,4 +33,5 @@ function Details({ tasks }) {
     )
 }
 
+// Exporting Details so it can be used in routing
 export default Details

@@ -1,18 +1,23 @@
+// Importing React hooks and router utilities
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
+// AddTask component: handles both adding new tasks and editing existing ones
 function AddTask({ onAdd, tasks, onUpdate }) {
-    const navigate = useNavigate()
-    const { id } = useParams()
+    const navigate = useNavigate()   // Hook for navigation
+    const { id } = useParams()       // Get task ID from URL if editing
 
+    // If editing, find the existing task by ID
     const existing = id ? tasks.find(t => t.id === Number(id)) : null
 
+    // Form state: title, description, priority, due date, and validation errors
     const [title, setTitle] = useState(existing ? existing.title : '')
     const [description, setDescription] = useState(existing ? existing.description : '')
     const [priority, setPriority] = useState(existing ? existing.priority : 'medium')
     const [due, setDue] = useState(existing ? existing.due : '')
     const [errors, setErrors] = useState({})
 
+    // Handling form submission: validate inputs, call onAdd or onUpdate, then navigate back
     function handleSubmit() {
         const newErrors = {}
         if (!title.trim()) newErrors.title = 'Title is required'
@@ -32,6 +37,7 @@ function AddTask({ onAdd, tasks, onUpdate }) {
         navigate('/list')
     }
 
+    // Render form UI: back button, form fields, validation messages, and submit button
     return (
         <div>
             <button onClick={() => navigate('/list')}>Back</button>
@@ -81,4 +87,5 @@ function AddTask({ onAdd, tasks, onUpdate }) {
     )
 }
 
+// Exporting AddTask so it can be used in routing
 export default AddTask

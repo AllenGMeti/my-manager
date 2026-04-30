@@ -1,9 +1,11 @@
+/* Global reset: ensure consistent box sizing and remove default margins/padding */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Base body styling: dark background, monospace font, light text */
 body {
     font-family: 'Courier New', monospace;
     background: #0e0e0e;
@@ -11,6 +13,7 @@ body {
     min-height: 100vh;
 }
 
+/* Navbar styling: dark background, horizontal layout, spacing */
 nav {
     background: #111;
     padding: 14px 24px;
@@ -20,6 +23,7 @@ nav {
     gap: 24px;
 }
 
+/* Navbar brand text */
 nav span {
     font-weight: bold;
     font-size: 16px;
@@ -28,6 +32,7 @@ nav span {
     letter-spacing: 1px;
 }
 
+/* Navbar links */
 nav a {
     color: #888;
     text-decoration: none;
@@ -36,6 +41,7 @@ nav a {
     text-transform: uppercase;
 }
 
+/* Hover and active states for links */
 nav a:hover {
     color: #00ff88;
 }
@@ -44,12 +50,14 @@ nav a.active {
     color: #00ff88;
 }
 
+/* Page container styling */
 .page {
     padding: 40px 24px;
     max-width: 680px;
     margin: 0 auto;
 }
 
+/* Headings */
 h1 {
     font-size: 24px;
     color: #ffffff;
@@ -70,6 +78,7 @@ h3 {
     margin-bottom: 6px;
 }
 
+/* Paragraphs */
 p {
     color: #666;
     font-size: 13px;
@@ -77,6 +86,7 @@ p {
     line-height: 1.6;
 }
 
+/* Buttons: neon green border, hover effect */
 button {
     padding: 8px 18px;
     margin: 4px;
@@ -97,6 +107,7 @@ button:hover {
     color: #0e0e0e;
 }
 
+/* Task card styling: dark background, neon left border, hover effect */
 .task-card {
     background: #111;
     border: 1px solid #222;
@@ -117,6 +128,7 @@ button:hover {
     margin-bottom: 6px;
 }
 
+/* Form labels */
 label {
     font-size: 11px;
     color: #555;
@@ -126,6 +138,7 @@ label {
     text-transform: uppercase;
 }
 
+/* Form inputs, textareas, selects */
 input[type='text'],
 input[type='date'],
 input[type='email'],
@@ -144,6 +157,7 @@ select {
     font-family: 'Courier New', monospace;
 }
 
+/* Focus state for inputs */
 input:focus,
 textarea:focus,
 select:focus {
@@ -151,6 +165,7 @@ select:focus {
     border-color: #00ff88;
 }
 
+/* Error message styling */
 .error {
     color: #ff4444;
     font-size: 12px;
@@ -158,7 +173,8 @@ select:focus {
     margin-bottom: 12px;
 }
 
-.detail-card {
+/* Detail card styling: similar to task card but larger padding */
+detail-card {
     background: #111;
     border: 1px solid #222;
     border-left: 3px solid #00ff88;
@@ -166,6 +182,7 @@ select:focus {
     padding: 24px;
 }
 
+/* Detail row: flex layout for key/value pairs */
 .detail-row {
     display: flex;
     justify-content: space-between;
